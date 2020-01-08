@@ -1,9 +1,16 @@
 package com.devtest.contato.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Contato {
 
-	private String id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String nome;
 	private String canal;
 	private String valor;
@@ -16,8 +23,7 @@ public class Contato {
 	}
 
 
-	public Contato(String id, String nome, String canal, String valor, String obs) {
-		this.id = id;
+	public Contato(String nome, String canal, String valor, String obs) {
 		this.nome = nome;
 		this.canal = canal;
 		this.valor = valor;
@@ -31,10 +37,10 @@ public class Contato {
 	}
 
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getNome() {
